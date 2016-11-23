@@ -20,6 +20,7 @@ end
 
 group :test do
   gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers'
 end
 
 group :development do
