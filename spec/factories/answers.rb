@@ -6,6 +6,6 @@ FactoryGirl.define do
 
   factory :nil_answer, class: 'Answer' do
     description nil
-    question nil
+    question
   end
 end
