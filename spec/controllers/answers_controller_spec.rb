@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe AnswersController, type: :controller do
-  # let(:answer) { create(:answer) }
   let(:question) { create(:question_with_answers, count: 1) }
   let(:question_without_answer) { create(:question) }
 
@@ -34,7 +33,6 @@ RSpec.describe AnswersController, type: :controller do
   end
   
   describe 'GET #show' do
-    # before { get :show, params: { question_id: answer.question, id: answer } }
     before { get :show, params: { question_id: question, id: question.answers.first} }
 
     it 'a requested question is assigned to @question' do
@@ -56,12 +54,12 @@ RSpec.describe AnswersController, type: :controller do
         expect { post :create,
                  params: { answer: attributes_for(:answer),
                            question_id: question } }
-        .to change(Answer, :count).by(1)
+          .to change{question.answers.count}.by(1)
       end
 
       it 'redirects to the show template' do
         post :create, params: { answer: attributes_for(:answer), question_id: question }
-        expect(response).to redirect_to question_answer_path(assigns(:answer))
+        expect(response).to redirect_to question_answers_path(assigns(:question))
       end
     end
 
@@ -70,7 +68,7 @@ RSpec.describe AnswersController, type: :controller do
         expect { post :create,
                  params: { answer: attributes_for(:nil_answer),
                            question_id: question_without_answer } }
-        .to_not change(Answer, :count)
+        .to_not change{question_without_answer.answers.count}
       end
 
       it 're-redirects to the new template' do
