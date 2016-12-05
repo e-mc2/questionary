@@ -13,6 +13,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 
 gem 'slim-rails'
+gem 'device'
 
 group :development, :test do
   gem 'byebug', platform: :mri
@@ -24,6 +25,8 @@ group :test do
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers'
   gem 'rails-controller-testing'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
