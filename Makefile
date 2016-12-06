@@ -2,6 +2,10 @@ migrate:
 	docker-compose run --rm -e RAILS_ENV=development web rake db:migrate
 	docker-compose run --rm -e RAILS_ENV=test web rake db:migrate
 
+rollback:
+	docker-compose run --rm -e RAILS_ENV=development web rake db:rollback
+	docker-compose run --rm -e RAILS_ENV=test web rake db:rollback
+
 db:
 	docker-compose run --rm RAILS_ENV=development web rake db:create
 	docker-compose run --rm RAILS_ENV=test web rake db:create
