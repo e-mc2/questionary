@@ -2,7 +2,7 @@ class AnswersController < ApplicationController
   before_action :set_question
 
   def index
-    @answers = @question.answers  
+    @answers = @question.answers
   end
 
   def show
@@ -28,7 +28,7 @@ class AnswersController < ApplicationController
   def set_question
     @question = Question.find params[:question_id]
   end
-  
+
   def answer_params
     params.require(:answer).permit(:description)
   end

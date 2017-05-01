@@ -11,5 +11,6 @@ services:
       - ${PWD}:/rails-app
     ports:
       - "3000:3000"
+      - "4331:4331"
     depends_on:
       - db

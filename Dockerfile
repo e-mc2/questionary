@@ -6,11 +6,11 @@ WORKDIR /rails-app
 
 COPY Gemfile /rails-app
 COPY Gemfile.lock /rails-app
-RUN bundle install
+RUN bundle update && bundle install
 
 COPY docker-entrypoint.sh /rails-app
 ENTRYPOINT ["/rails-app/docker-entrypoint.sh"]
 
 ENV RAILS_ENV development
 
-EXPOSE 3000
+EXPOSE 3000 4331

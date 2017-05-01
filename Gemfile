@@ -19,9 +19,11 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'pry-rails'
 end
 
 group :test do
+  gem 'shoulda'
   gem 'shoulda-matchers'
   gem 'shoulda-callback-matchers'
   gem 'rails-controller-testing'
